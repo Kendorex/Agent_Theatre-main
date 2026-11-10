@@ -1,0 +1,1438 @@
+{
+  "title": "Поправка к протоколу",
+  "created_at": "2026-11-10T17:57:34.035708+00:00",
+  "seed": 42,
+  "plan": {
+    "title": "Поправка к протоколу",
+    "acts": [
+      {
+        "id": 1,
+        "title": "Возвращение за зарядкой",
+        "goal": "Орлов и Волкова сверяют показание Соколова об уходе в 20:50 и выясняют, что он возвращался за зарядкой.",
+        "stage": "Папка лежит закрытой в центре стола, стулья стоят напротив друг друга, свет ровный и чуть прохладный."
+      },
+      {
+        "id": 2,
+        "title": "Запись в 21:14",
+        "goal": "После упоминания контроллера, записавшего вход в 21:14, Соколов уточняет прежние показания, не меняя их сути.",
+        "stage": "Папка раскрыта на протоколе, один стул отодвинут, лампа над столом включена ярче."
+      },
+      {
+        "id": 3,
+        "title": "Двенадцать минут и файл",
+        "goal": "Выясняется, что контроллер спешил на 12 минут и вход был в 21:02, но отправка файла в 21:06 и черновая сводка консультанту Марку всё ещё требуют объяснения.",
+        "stage": "Папка с черновой сводкой лежит поверх протокола, стулья сдвинуты ближе, свет к концу разговора остаётся ровным."
+      }
+    ]
+  },
+  "turns": [
+    {
+      "act": 1,
+      "speaker": "orlov",
+      "text": "В первичном объяснении вы указали, что совещание закончилось примерно в 20:40, а ушли вы около 20:50. После совещания вы сразу направились домой?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 1,
+      "speaker": "sokolov",
+      "text": "После совещания я пошёл домой, но перед этим забежал в лабораторию за зарядкой. Поэтому и ушёл около 20:50.",
+      "raw_text": "После совещания мы сразу направились домой, но я не уверен, точно ли мы были там в 20:50. Боялся, что это будет проблема.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 1,
+      "speaker": "volkova",
+      "text": "В первичном объяснении, строка вторая, у вас записано: ушли около 20:50. Зарядку вы забрали в лаборатории до ухода или уже после того, как собрались?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 1,
+      "speaker": "sokolov",
+      "text": "Забрал до ухода: зашёл в лабораторию, взял зарядку и уже оттуда пошёл к выходу.",
+      "raw_text": "Я забрал зарядку в лаборатории до ухода.",
+      "address_to": "volkova",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 1,
+      "speaker": "orlov",
+      "text": "Понял. В лаборатории вы были один или кого-то там встретили?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 1,
+      "speaker": "sokolov",
+      "text": "Да, в лаборатории я был один, никого не встретил. Забрал зарядку и пошёл к выходу.",
+      "raw_text": "Один. Только себя.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 2,
+      "speaker": "volkova",
+      "text": "В журнале контроллера лаборатории, строка третья, указан вход по вашему пропуску в 21:14, а выход — в 21:23. Вы говорили, что зашли за зарядкой до ухода; уточните, пожалуйста, этот вход в 21:14 — вы возвращались в лабораторию позже?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 2,
+      "speaker": "sokolov",
+      "text": "Да, в 21:14 я действительно заходил в лабораторию ещё раз. Время в первом объяснении назвал неточно — испугался, что из-за этого начнут разбирательство.",
+      "raw_text": "Да, возвращался в лабораторию позже. Зашли в 21:14, зарядку взяли, потом пошли к выходу.",
+      "address_to": "volkova",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 2,
+      "speaker": "orlov",
+      "text": "В журнале доступа, строка третья, указан вход по вашему пропуску в 21:14, строка четвёртая — выход в 21:23; это время контроллера, не подтверждённое точное. Вы говорите, что заходили второй раз. Что вы делали в лаборатории в этот заход?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 2,
+      "speaker": "sokolov",
+      "text": "Во второй заход я зашёл в лабораторию за распечаткой — она мне была нужна. Время в первом объяснении назвал неточно, потому что испугался разбирательства.",
+      "raw_text": "После того, как взял зарядку, я провёл время в лаборатории, проверил данные, посмотрел на часы. Время в первом объяснении назвал неточно — испугался, что из-за этого начнут разбирательство.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 2,
+      "speaker": "volkova",
+      "text": "Спасибо за уточнение: в журнале контроллера, строка третья, стоит вход 21:14, и вы подтвердили второй заход. Тогда почему распечатку вы не забрали в первый заход, когда брали зарядку?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 2,
+      "speaker": "sokolov",
+      "text": "В первый заход я взял зарядку и про распечатку не подумал. Потом понял, что она мне нужна, и вернулся в лабораторию — поэтому вход был позже.",
+      "raw_text": "Потому что в первый заход я зашёл за зарядкой, а распечатку забрал в другой раз. Нет ошибки — я просто брал зарядку первой, потом через день забрал распечатку.",
+      "address_to": "volkova",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 3,
+      "speaker": "volkova",
+      "text": "По акту сверки часов контроллер спешил на 12 минут: вход 21:14 соответствует 21:02. Тогда отправка файла в 21:06 попадает между входом и выходом; что за черновая сводка ушла Марку?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 3,
+      "speaker": "sokolov",
+      "text": "Да, это была черновая сводка по испытаниям — я отправил её Марку, потому что он предлагал платную консультацию. Денег я ему не платил и секретов не передавал; кто он на самом деле, не знаю.",
+      "raw_text": "Черновая сводка ушла Марку — он её получил, но не подписал. Я не знаю, кто он, и не могу сказать, что она шпионит.",
+      "address_to": "volkova",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 3,
+      "speaker": "orlov",
+      "text": "Сверка часов подтверждает, что отправка в 21:06 пришлась между входом и выходом. В переписке Марк просил черновую сводку по испытаниям — что именно из этой сводки вы отправили?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 3,
+      "speaker": "sokolov",
+      "text": "Отправил черновик сводки по испытаниям — то, что Марк просил для консультации. Секретных данных там не было, денег я ему не платил. Кто он на самом деле, я не знаю.",
+      "raw_text": "Я отправил черновую сводку по испытаниям, но не секреты. Марк просил её, но я не платил и не передавал ничего секретного. Кто он на самом деле — не знаю.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 3,
+      "speaker": "orlov",
+      "text": "Понял. В самой сводке были только общие выводы по испытаниям или ещё таблицы с результатами?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 3,
+      "speaker": "sokolov",
+      "text": "В сводке были общие выводы по испытаниям, таблиц с результатами я не прикладывал. Насколько помню, отправил именно черновик, без секретных данных.",
+      "raw_text": "В сводке были только общие выводы — таблицы с результатами я не нашёл.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 3,
+      "speaker": "volkova",
+      "text": "По переписке, документ mail, строка вторая, Марк просил именно черновую сводку по испытаниям. Вы говорите, что таблиц не прикладывали; в сводке были только общие выводы или ещё какие-то данные по испытаниям?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 3,
+      "speaker": "sokolov",
+      "text": "В сводке были только общие выводы по испытаниям, таблиц с результатами я не прикладывал. Отправил именно черновик, без секретных данных.",
+      "raw_text": "В сводке были только общие выводы по испытаниям. Таблиц с результатами я не прикладывал.",
+      "address_to": "volkova",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    },
+    {
+      "act": 3,
+      "speaker": "orlov",
+      "text": "Вы сказали, что таблиц не прикладывали. В самом тексте сводки были конкретные цифры по испытаниям или только формулировки выводов?",
+      "address_to": "sokolov",
+      "backend": "cloud"
+    },
+    {
+      "act": 3,
+      "speaker": "sokolov",
+      "text": "В тексте были формулировки выводов, конкретных цифр по испытаниям я не прикладывал. Отправил именно черновик, без секретных данных.",
+      "raw_text": "В тексте сводки были формулировки выводов, цифры по испытаниям я не прикладывал. Отправил черновик, без секретных данных.",
+      "address_to": "orlov",
+      "editor_model": "deepseek-v4.1-flash",
+      "backend": "local+cloud_edit"
+    }
+  ],
+  "directions": {
+    "1": {
+      "opening": "Пауза. Свет ровный и прохладный; папка лежит закрытой в центре стола, стулья стоят напротив друг друга.",
+      "closing": "Соколов замолкает. Волкова опускает взгляд на закрытую папку."
+    },
+    "2": {
+      "opening": "Соколов на мгновение замолкает. Волкова, не поднимая головы, ведёт ручкой по строке протокола.",
+      "closing": "Соколов на мгновение опускает глаза, затем снова смотрит на Волкову. Пауза."
+    },
+    "3": {
+      "opening": "(Соколов переводит взгляд с протокола на папку с черновой сводкой. Пауза.)",
+      "closing": "Пауза. Соколов слегка сдвигает папку с черновой сводкой и оставляет её поверх протокола."
+    }
+  },
+  "decisions": [
+    {
+      "turn": 1,
+      "speaker": "orlov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 2,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 3,
+      "speaker": "volkova",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 4,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 5,
+      "speaker": "orlov",
+      "source": "director",
+      "reason": "Волкова уже уточнила детали про зарядку, и Соколов ответил; теперь Орлову логично продолжить сверку хронологии ухода и задать следующий вопрос."
+    },
+    {
+      "turn": 6,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 7,
+      "speaker": "volkova",
+      "source": "rule",
+      "reason": "Сверка нового материала в начале действия."
+    },
+    {
+      "turn": 8,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 9,
+      "speaker": "orlov",
+      "source": "director",
+      "reason": "Волкова уже предъявила запись контроллера и задала вопрос о возвращении; теперь Орлову логично уточнить обстоятельства повторного входа в лабораторию в 21:14, не меняя сути показаний Соколова."
+    },
+    {
+      "turn": 10,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 11,
+      "speaker": "volkova",
+      "source": "director",
+      "reason": "Она уже предъявляла запись контроллера о входе в 21:14; теперь логично проверить возвращение и выход в 21:23, уточнив показания Соколова."
+    },
+    {
+      "turn": 12,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 13,
+      "speaker": "volkova",
+      "source": "rule",
+      "reason": "Сверка нового материала в начале действия."
+    },
+    {
+      "turn": 14,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 15,
+      "speaker": "orlov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 16,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 17,
+      "speaker": "orlov",
+      "source": "director",
+      "reason": "Соколов только что ответил Орлову общими словами о черновике сводки, не уточнив содержание. Орлову логично задать следующий проверяемый вопрос: какие именно разделы или формулировки были в отправленном файле."
+    },
+    {
+      "turn": 18,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 19,
+      "speaker": "volkova",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 20,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    },
+    {
+      "turn": 21,
+      "speaker": "orlov",
+      "source": "director",
+      "reason": "После повторного ответа Соколова о содержании сводки нужно перейти к проверяемым артефактам: запросить сам отправленный черновик, метаданные письма и журнал отправки, чтобы отделить общие выводы от возможных таблиц и подтвердить время 21:06."
+    },
+    {
+      "turn": 22,
+      "speaker": "sokolov",
+      "source": "rule",
+      "reason": "Ответ на вопрос, начало разговора или участие отставшего персонажа."
+    }
+  ],
+  "tool_calls": [
+    {
+      "act": 1,
+      "actor": "orlov",
+      "tool": "file_search",
+      "arguments": {
+        "query": "первичное объяснение ушёл 20:50 зарядка"
+      },
+      "result": [
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 2,
+          "text": "Соколов: «Совещание закончилось примерно в 20:40. Я собрался и ушёл около 20:50».",
+          "score": 3,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 1,
+          "text": "Дело «Север». Первичное объяснение Ильи Соколова. Все материалы вымышлены.",
+          "score": 2,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 4,
+          "text": "Уточнение сотрудника: время ухода названо по памяти, запись проходной на момент объяснения не проверялась.",
+          "score": 1,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 5,
+          "text": "На столе Соколова обычно остаются рабочая папка и зарядка для телефона.",
+          "score": 1,
+          "total_lines": 6
+        }
+      ]
+    },
+    {
+      "act": 1,
+      "actor": "volkova",
+      "tool": "file_search",
+      "arguments": {
+        "query": "первичное объяснение ушёл 20:50 зарядка"
+      },
+      "result": [
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 2,
+          "text": "Соколов: «Совещание закончилось примерно в 20:40. Я собрался и ушёл около 20:50».",
+          "score": 3,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 1,
+          "text": "Дело «Север». Первичное объяснение Ильи Соколова. Все материалы вымышлены.",
+          "score": 2,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 4,
+          "text": "Уточнение сотрудника: время ухода названо по памяти, запись проходной на момент объяснения не проверялась.",
+          "score": 1,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 5,
+          "text": "На столе Соколова обычно остаются рабочая папка и зарядка для телефона.",
+          "score": 1,
+          "total_lines": 6
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "actor": "volkova",
+      "tool": "file_search",
+      "arguments": {
+        "query": "журнал вход 21:14 контроллер"
+      },
+      "result": [
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 3,
+          "text": "21:14 — вход по пропуску Ильи Соколова.",
+          "score": 3,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 1,
+          "text": "Дело «Север». Выдержка из журнала контроллера лаборатории. Все материалы вымышлены.",
+          "score": 2,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 4,
+          "text": "21:23 — выход по пропуску Ильи Соколова.",
+          "score": 1,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 5,
+          "text": "Все значения в этой выгрузке — время контроллера, а не подтверждённое точное время.",
+          "score": 1,
+          "total_lines": 7
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "actor": "orlov",
+      "tool": "file_search",
+      "arguments": {
+        "query": "журнал вход 21:14 контроллер"
+      },
+      "result": [
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 3,
+          "text": "21:14 — вход по пропуску Ильи Соколова.",
+          "score": 3,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 1,
+          "text": "Дело «Север». Выдержка из журнала контроллера лаборатории. Все материалы вымышлены.",
+          "score": 2,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 4,
+          "text": "21:23 — выход по пропуску Ильи Соколова.",
+          "score": 1,
+          "total_lines": 7
+        },
+        {
+          "doc_id": "access",
+          "file": "02_access.txt",
+          "line": 5,
+          "text": "Все значения в этой выгрузке — время контроллера, а не подтверждённое точное время.",
+          "score": 1,
+          "total_lines": 7
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "actor": "volkova",
+      "tool": "file_search",
+      "arguments": {
+        "query": "поправка часы сводка отправка Марк"
+      },
+      "result": [
+        {
+          "doc_id": "clock",
+          "file": "03_clock.txt",
+          "line": 8,
+          "text": "Поправка подтверждает хронологию, но не цель возвращения и не умысел отправителя.",
+          "score": 2,
+          "total_lines": 8
+        },
+        {
+          "doc_id": "mail",
+          "file": "04_mail.txt",
+          "line": 2,
+          "text": "Марк: «Для обсуждения консультации пришлите черновую сводку по испытаниям. Условия оплаты обсудим отдельно».",
+          "score": 2,
+          "total_lines": 8
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 6,
+          "text": "Вопрос об отправке документов в этом объяснении не задавался.",
+          "score": 1,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "clock",
+          "file": "03_clock.txt",
+          "line": 7,
+          "text": "У почтового сервиса время серверное, дополнительная поправка к нему не применяется.",
+          "score": 1,
+          "total_lines": 8
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "actor": "volkova",
+      "tool": "read_excerpt",
+      "arguments": {
+        "doc_id": "clock",
+        "start": 1,
+        "end": 8
+      },
+      "result": {
+        "doc_id": "clock",
+        "file": "03_clock.txt",
+        "lines": [
+          {
+            "line": 1,
+            "text": "Дело «Север». Акт технической сверки часов. Все материалы вымышлены."
+          },
+          {
+            "line": 2,
+            "text": "В интервале 20:00–22:00 контроллер лаборатории спешил на 12 минут относительно серверного времени."
+          },
+          {
+            "line": 3,
+            "text": "Для этого интервала из времени контроллера нужно вычесть 12 минут."
+          },
+          {
+            "line": 4,
+            "text": "Запись повторного входа 21:14 соответствует серверному времени 21:02."
+          },
+          {
+            "line": 5,
+            "text": "Запись последнего выхода 21:23 соответствует серверному времени 21:11."
+          },
+          {
+            "line": 6,
+            "text": "Первая запись выхода 20:48 соответствует серверному времени 20:36; объяснение «около 20:50» остаётся неточным."
+          },
+          {
+            "line": 7,
+            "text": "У почтового сервиса время серверное, дополнительная поправка к нему не применяется."
+          },
+          {
+            "line": 8,
+            "text": "Поправка подтверждает хронологию, но не цель возвращения и не умысел отправителя."
+          }
+        ]
+      }
+    },
+    {
+      "act": 3,
+      "actor": "volkova",
+      "tool": "timeline_check",
+      "arguments": {
+        "recorded_time": "21:14",
+        "offset_minutes": 12
+      },
+      "result": {
+        "recorded": "21:14",
+        "offset_minutes": 12,
+        "actual": "21:02",
+        "note": "Расчёт не подтверждает верность исходной поправки; нужен документ."
+      }
+    },
+    {
+      "act": 3,
+      "actor": "orlov",
+      "tool": "file_search",
+      "arguments": {
+        "query": "поправка часы сводка отправка Марк"
+      },
+      "result": [
+        {
+          "doc_id": "clock",
+          "file": "03_clock.txt",
+          "line": 8,
+          "text": "Поправка подтверждает хронологию, но не цель возвращения и не умысел отправителя.",
+          "score": 2,
+          "total_lines": 8
+        },
+        {
+          "doc_id": "mail",
+          "file": "04_mail.txt",
+          "line": 2,
+          "text": "Марк: «Для обсуждения консультации пришлите черновую сводку по испытаниям. Условия оплаты обсудим отдельно».",
+          "score": 2,
+          "total_lines": 8
+        },
+        {
+          "doc_id": "statement",
+          "file": "01_statement.txt",
+          "line": 6,
+          "text": "Вопрос об отправке документов в этом объяснении не задавался.",
+          "score": 1,
+          "total_lines": 6
+        },
+        {
+          "doc_id": "clock",
+          "file": "03_clock.txt",
+          "line": 7,
+          "text": "У почтового сервиса время серверное, дополнительная поправка к нему не применяется.",
+          "score": 1,
+          "total_lines": 8
+        }
+      ]
+    }
+  ],
+  "telemetry": [
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.22,
+      "usage": {
+        "prompt_tokens": 156,
+        "total_tokens": 355,
+        "completion_tokens": 199,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 160
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.0,
+      "usage": {
+        "prompt_tokens": 826,
+        "total_tokens": 948,
+        "completion_tokens": 122,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 93
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.97,
+      "usage": {
+        "prompt_tokens": 1151,
+        "total_tokens": 1596,
+        "completion_tokens": 445,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 382
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 26.81,
+      "output_tokens": 42
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.97,
+      "usage": {
+        "prompt_tokens": 848,
+        "total_tokens": 1105,
+        "completion_tokens": 257,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 213
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.08,
+      "usage": {
+        "prompt_tokens": 913,
+        "total_tokens": 1161,
+        "completion_tokens": 248,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 217
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 1.61,
+      "usage": {
+        "prompt_tokens": 1238,
+        "total_tokens": 1333,
+        "completion_tokens": 95,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 32
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 18.52,
+      "output_tokens": 19
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.47,
+      "usage": {
+        "prompt_tokens": 920,
+        "total_tokens": 1076,
+        "completion_tokens": 156,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.5,
+      "usage": {
+        "prompt_tokens": 354,
+        "total_tokens": 633,
+        "completion_tokens": 279,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 224
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.28,
+      "usage": {
+        "prompt_tokens": 1281,
+        "total_tokens": 1419,
+        "completion_tokens": 138,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 15.45,
+      "output_tokens": 7
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.59,
+      "usage": {
+        "prompt_tokens": 974,
+        "total_tokens": 1117,
+        "completion_tokens": 143,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 108
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.03,
+      "usage": {
+        "prompt_tokens": 298,
+        "total_tokens": 486,
+        "completion_tokens": 188,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 167
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.41,
+      "usage": {
+        "prompt_tokens": 293,
+        "total_tokens": 520,
+        "completion_tokens": 227,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 193
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 5.64,
+      "usage": {
+        "prompt_tokens": 418,
+        "total_tokens": 846,
+        "completion_tokens": 428,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 378
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 1.56,
+      "usage": {
+        "prompt_tokens": 1389,
+        "total_tokens": 1519,
+        "completion_tokens": 130,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.88,
+      "usage": {
+        "prompt_tokens": 1678,
+        "total_tokens": 2063,
+        "completion_tokens": 385,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 293
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 33.59,
+      "output_tokens": 42
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.77,
+      "usage": {
+        "prompt_tokens": 1121,
+        "total_tokens": 1445,
+        "completion_tokens": 324,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 269
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 5.52,
+      "usage": {
+        "prompt_tokens": 558,
+        "total_tokens": 965,
+        "completion_tokens": 407,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 338
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 1.77,
+      "usage": {
+        "prompt_tokens": 1531,
+        "total_tokens": 1653,
+        "completion_tokens": 122,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.59,
+      "usage": {
+        "prompt_tokens": 1820,
+        "total_tokens": 2210,
+        "completion_tokens": 390,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 298
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 48.42,
+      "output_tokens": 69
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 5.89,
+      "usage": {
+        "prompt_tokens": 1285,
+        "total_tokens": 1709,
+        "completion_tokens": 424,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 372
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.08,
+      "usage": {
+        "prompt_tokens": 597,
+        "total_tokens": 890,
+        "completion_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 233
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.97,
+      "usage": {
+        "prompt_tokens": 1908,
+        "total_tokens": 2246,
+        "completion_tokens": 338,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 265
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 45.73,
+      "output_tokens": 55
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.02,
+      "usage": {
+        "prompt_tokens": 1396,
+        "total_tokens": 1684,
+        "completion_tokens": 288,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 237
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 1.95,
+      "usage": {
+        "prompt_tokens": 397,
+        "total_tokens": 602,
+        "completion_tokens": 205,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 180
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.8,
+      "usage": {
+        "prompt_tokens": 408,
+        "total_tokens": 734,
+        "completion_tokens": 326,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 297
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 5.25,
+      "usage": {
+        "prompt_tokens": 644,
+        "total_tokens": 1005,
+        "completion_tokens": 361,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 293
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.66,
+      "usage": {
+        "prompt_tokens": 2124,
+        "total_tokens": 2344,
+        "completion_tokens": 220,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.34,
+      "usage": {
+        "prompt_tokens": 2441,
+        "total_tokens": 2818,
+        "completion_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 345
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.94,
+      "usage": {
+        "prompt_tokens": 2803,
+        "total_tokens": 2984,
+        "completion_tokens": 181,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.2,
+      "usage": {
+        "prompt_tokens": 2906,
+        "total_tokens": 3156,
+        "completion_tokens": 250,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 176
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 43.0,
+      "output_tokens": 42
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 5.55,
+      "usage": {
+        "prompt_tokens": 1502,
+        "total_tokens": 1876,
+        "completion_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 307
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.11,
+      "usage": {
+        "prompt_tokens": 2237,
+        "total_tokens": 2542,
+        "completion_tokens": 305,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 275
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 4.84,
+      "usage": {
+        "prompt_tokens": 2554,
+        "total_tokens": 2986,
+        "completion_tokens": 432,
+        "prompt_tokens_details": {
+          "cached_tokens": 2048
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 360
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 52.36,
+      "output_tokens": 53
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 6.2,
+      "usage": {
+        "prompt_tokens": 1641,
+        "total_tokens": 2067,
+        "completion_tokens": 426,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 364
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 7.44,
+      "usage": {
+        "prompt_tokens": 699,
+        "total_tokens": 1312,
+        "completion_tokens": 613,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 545
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.42,
+      "usage": {
+        "prompt_tokens": 2630,
+        "total_tokens": 2877,
+        "completion_tokens": 247,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 208
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 41.78,
+      "output_tokens": 23
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.69,
+      "usage": {
+        "prompt_tokens": 1701,
+        "total_tokens": 1939,
+        "completion_tokens": 238,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.47,
+      "usage": {
+        "prompt_tokens": 3155,
+        "total_tokens": 3439,
+        "completion_tokens": 284,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 207
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 47.81,
+      "output_tokens": 30
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 3.08,
+      "usage": {
+        "prompt_tokens": 1823,
+        "total_tokens": 1970,
+        "completion_tokens": 147,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 104
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 6.64,
+      "usage": {
+        "prompt_tokens": 638,
+        "total_tokens": 1185,
+        "completion_tokens": 547,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 466
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.39,
+      "usage": {
+        "prompt_tokens": 2822,
+        "total_tokens": 3034,
+        "completion_tokens": 212,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        }
+      }
+    },
+    {
+      "backend": "local",
+      "model": "Qwen/Qwen3-1.7B",
+      "device": "cpu",
+      "seconds": 58.38,
+      "output_tokens": 42
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 1.92,
+      "usage": {
+        "prompt_tokens": 1918,
+        "total_tokens": 2049,
+        "completion_tokens": 131,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        }
+      }
+    },
+    {
+      "backend": "cloud",
+      "model": "deepseek-v4.1-flash",
+      "seconds": 2.86,
+      "usage": {
+        "prompt_tokens": 349,
+        "total_tokens": 679,
+        "completion_tokens": 330,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 299
+        }
+      }
+    }
+  ]
+}
