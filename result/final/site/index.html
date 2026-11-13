@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Пьеса трёх LLM-персонажей. Сверьте хронологию, прочитайте разговор и проверьте источники итогового протокола.">
+  <meta name="theme-color" content="#f4f0e7">
+  <title>Поправка к протоколу · Агентский театр</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #f4f0e7;
+  --surface: #fbf8f1;
+  --ink: #202622;
+  --muted: #545a53;
+  --rule: #d2cdbf;
+  --red: #9c3227;
+  --blue: #2c5465;
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', 'Cascadia Mono', Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 1rem/1.55 var(--body); }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; text-underline-offset: .22em; }
+a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+h1, h2, h3, p, dl, dd, ul, ol, blockquote { margin: 0; }
+ol, ul { padding: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 500; line-height: 1.03; letter-spacing: -.045em; }
+h2 { font-size: clamp(2.5rem, 6vw, 4.6rem); }
+code { font-family: var(--mono); font-size: .85em; overflow-wrap: anywhere; }
+[id] { scroll-margin-top: 1.4rem; }
+.wrap { width: min(1160px, calc(100% - 88px)); margin-inline: auto; }
+.skip-link { position: absolute; left: 1rem; top: .75rem; z-index: 5; padding: .5rem 1rem; background: var(--surface); transform: translateY(-180%); }
+.skip-link:focus { transform: none; }
+
+.masthead { min-height: 75px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.masthead a { text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: .65rem; font-size: .94rem; font-weight: 750; }
+.brand > span { width: 19px; height: 19px; border: 1px solid var(--red); background: repeating-linear-gradient(var(--red) 0 1px, transparent 1px 4px) center / 9px 9px no-repeat; transform: rotate(-8deg); }
+.masthead nav { display: flex; flex-wrap: wrap; gap: clamp(.7rem, 3vw, 2.3rem); font-size: .89rem; color: var(--muted); }
+.masthead nav a:hover, .quiet:hover, .footer a:hover { color: var(--red); }
+
+.hero { display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: clamp(1.6rem, 4vw, 4rem); padding-block: 3.25rem 2.8rem; }
+.label { display: flex; gap: .55rem; align-items: center; color: var(--red); font: 700 .73rem/1.35 var(--mono); text-transform: uppercase; letter-spacing: .095em; }
+.signal { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+.hero h1 { font-size: clamp(3.75rem, 7.05vw, 6.65rem); margin-block: 1.15rem 1.35rem; }
+.hero h1 em { color: var(--red); font-weight: inherit; }
+.intro { max-width: 34ch; color: var(--muted); font-size: clamp(1.08rem, 1.65vw, 1.3rem); }
+.hero-links { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.4rem; margin-top: 1.8rem; }
+.primary, .quiet { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; font-size: .9rem; font-weight: 700; }
+.primary { padding: .7rem 1.05rem; background: var(--ink); color: var(--surface); border: 1px solid var(--ink); text-decoration: none; }
+.primary:hover { background: var(--red); border-color: var(--red); }
+.quiet { min-height: 2.5rem; }
+.hero-art { isolation: isolate; display: grid; place-items: center; min-height: clamp(19rem, 35vw, 28.4rem); position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at 45% 37%, #496269 0, #2c4043 43%, #172629 100%); }
+.hero-art::before { content: ''; position: absolute; inset: 0; opacity: .3; pointer-events: none;
+  background: repeating-linear-gradient(0deg, #f6f6e70d 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, #10161738 0 1px, transparent 1px 7px); }
+.folder { position: absolute; width: 77%; height: 64%; transform: rotate(-11deg) translate(-1%, 5%); background: #9f7850; border: 1px solid #b79b72;
+  box-shadow: -12px 22px 35px #0b131385, inset 0 0 38px #3c2a164d; }
+.folder::before { content: ''; position: absolute; top: -13px; left: 0; width: 34%; height: 14px; border-radius: 8px 10px 0 0; background: inherit; }
+.exhibit { width: 73%; container-type: inline-size; position: relative; padding: 1.2rem 1.2rem 1rem; transform: rotate(7deg) translate(3%, -1%); color: #222921;
+  background: linear-gradient(145deg, #f8f0dc, #e9ddbf); box-shadow: 3px 16px 25px #161e1e77; }
+.exhibit::after { content: ''; width: 18px; height: 18px; position: absolute; top: 0; right: 0; background: linear-gradient(45deg, #c9b991 50%, #33494c 51%); }
+.exhibit-head, .exhibit-foot { display: flex; align-items: center; justify-content: space-between; gap: .4rem; font: 700 clamp(.55rem, 1.12vw, .75rem)/1.2 var(--mono); letter-spacing: .065em; }
+.exhibit-head { padding-bottom: .65rem; border-bottom: 1px solid #91856b; }
+.exhibit-head span:last-child, .exhibit-foot > span { color: #57513f; }
+.exhibit > p { margin-block: .9rem .55rem; font: 500 clamp(1.5rem, 3.1vw, 2.65rem)/1.02 var(--serif); letter-spacing: -.06em; }
+.exhibit-times { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: .1em; margin-block: .9rem .75rem; padding: .48rem .05rem; border-block: 1px solid #a49a83; font: clamp(1rem, 2.6vw, 2.5rem)/1.2 var(--mono); font-size: clamp(1rem, 12cqi, 2.5rem); }
+.exhibit-times s { color: #615b4a; text-decoration-color: var(--red); text-decoration-thickness: .055em; }
+.exhibit-times strong, .exhibit-times span { color: var(--red); }
+.exhibit-times span { font-size: .72em; }
+.exhibit-foot b { transform: rotate(-6deg); color: var(--red); border: 1.5px solid var(--red); padding: .32rem .45rem; white-space: nowrap; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--rule); }
+.stats > div { display: flex; flex-direction: column-reverse; gap: .12rem; padding: .85rem 1.25rem .95rem; }
+.stats > div:first-child { padding-inline-start: 0; }
+.stats > div + div { border-left: 1px solid var(--rule); }
+.stats dt { color: var(--muted); font-size: .9rem; }
+.stats dd { font: 500 clamp(1.7rem, 3.3vw, 2.65rem)/1.15 var(--serif); letter-spacing: -.05em; }
+
+.section { padding-block: clamp(3rem, 7vw, 6.2rem) 0; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem 2.5rem; margin-bottom: 1.45rem; }
+.section-head .label { margin-bottom: .65rem; }
+.section-head > p { max-width: 42ch; color: var(--muted); }
+.timeline { --entrance: 87.5%; --dispatch: 37.5%; background: #e7eded; border: 1px solid #c3cfce; padding: clamp(.85rem, 2.8vw, 1.75rem); }
+.timeline.after { --entrance: 12.5%; }
+.timeline-top, .timeline-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .65rem 1rem; }
+.timeline-top:has(.segmented[hidden]) { display: none; }
+.segmented { display: inline-flex; flex-wrap: wrap; gap: 2px; border: 1px solid #b5c4c3; padding: 3px; }
+.segmented button { border: 0; color: #32484c; background: transparent; font-weight: 650; cursor: pointer; padding: .38rem .65rem; }
+.segmented button:hover { background: #dae2e2; }
+.segmented button[aria-pressed="true"] { background: #284650; color: white; }
+.offset { border: 1px solid #b99b94; color: var(--red); padding: .27rem .6rem; font: 700 .8rem var(--mono); }
+.chart { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .55rem clamp(.75rem, 4vw, 2.4rem); align-items: center; margin: 1.3rem 1rem 1.15rem 0; }
+.track-label { font-size: .88rem; font-weight: 650; display: flex; gap: .5rem; align-items: center; }
+.track-label i { display: block; width: .55rem; height: .55rem; flex-shrink: 0; background: currentColor; border-radius: 50%; }
+.access-label { color: var(--red); }
+.mail-label { color: var(--blue); }
+.track { position: relative; height: 2.65rem; background: repeating-linear-gradient(90deg, #a4b4b5 0 1px, transparent 1px 25%); border-right: 1px solid #a4b4b5; }
+.track::before { content: ''; position: absolute; inset: 50% 0 auto; height: 1px; background: #9aacad; }
+.marker { position: absolute; inset: 0 auto 0 0; left: var(--entrance); display: grid; place-items: center; transform: translateX(-50%); color: var(--red); transition: left .55s cubic-bezier(.25,.75,.3,1); }
+.marker.dispatch { left: var(--dispatch); color: var(--blue); }
+.marker b { color: #fff; background: var(--red); border-radius: 3px; font: 700 clamp(.75rem, 2vw, .98rem)/1.2 var(--mono); padding: .32rem .44rem; }
+.dispatch b { background: var(--blue); }
+.ticks { display: flex; justify-content: space-between; color: #4d6264; font: clamp(.64rem, 1.5vw, .77rem) var(--mono); margin-inline: -1.5ch; }
+.timeline-bottom { border-top: 1px solid #bdcccb; padding-top: .85rem; }
+.timeline-bottom p { font-weight: 650; }
+.references { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.source-link { display: inline-block; padding: .17rem .4rem; border: 1px solid #b8c6c4; color: #2b5059; background: #f6faf84a; font: .74rem/1.45 var(--mono); text-decoration: none; }
+.source-link:hover { background: #dbe7e6; border-color: #839d9f; }
+.annotation { max-width: 73ch; color: var(--muted); font-size: .93rem; margin-top: .9rem; }
+
+.orlov { --speaker: #3f5266; --badge: #e1e8f0; }
+.volkova { --speaker: #2f5b50; --badge: #e1ebe4; }
+.sokolov { --speaker: #904334; --badge: #f0e1d8; }
+.play-grid { display: grid; grid-template-columns: minmax(12.5rem, .29fr) minmax(0, 1fr); gap: 1.1rem; align-items: start; }
+.cast { border-top: 3px solid var(--ink); padding: 1.1rem 1rem; background: #ebe7dd; }
+.cast h3, .reviews h3, .method-grid h3 { font-size: 1rem; }
+.cast ul { list-style: none; margin-block: 1rem; }
+.cast li { display: flex; gap: .6rem; align-items: start; padding-block: .65rem; border-top: 1px solid var(--rule); }
+.cast small { display: block; color: var(--muted); }
+.cast p { color: var(--muted); font-size: .78rem; }
+.initial { background: var(--badge); color: var(--speaker); flex: 0 0 1.9rem; height: 1.9rem; display: grid; place-items: center; font: 700 .8rem var(--mono); }
+.script { border: 1px solid var(--rule); background: var(--surface); }
+.act-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+.act-nav a { display: flex; align-items: baseline; gap: .45rem; padding: .8rem .65rem; border-bottom: 2px solid transparent; text-decoration: none; font-size: .84rem; font-weight: 650; }
+.act-nav a + a { border-left: 1px solid var(--rule); }
+.act-nav a > span { color: var(--red); font: .8rem var(--mono); }
+.act-nav a[aria-selected="true"] { border-bottom-color: var(--red); background: #f4e9df; }
+.act-nav a:hover { background: #eeeae0; }
+.act { padding: clamp(1rem, 3.4vw, 2rem); }
+.act + .act { border-top: 1px solid var(--rule); }
+.act h3 { font: 500 clamp(1.3rem, 4vw, 2rem)/1.18 var(--serif); }
+.act audio { display: block; width: min(100%, 28rem); margin-top: .8rem; }
+.direction { font-family: var(--serif); font-style: italic; color: var(--muted); padding-block: .85rem; }
+.speeches { list-style: none; }
+.speech { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .6rem; align-items: start; border-top: 1px solid #e3ded2; padding: .67rem 0; }
+.speech:last-child { border-bottom: 1px solid #e3ded2; }
+.turn-number { color: #646760; font: .73rem/1.65 var(--mono); }
+.speech b, .reviews b { color: var(--speaker); }
+.speech.is-speaking { background: var(--badge); box-shadow: -.45rem 0 var(--badge), .45rem 0 var(--badge); }
+.speech p { line-height: 1.55; }
+.delivery { color: var(--muted); font-size: .9em; }
+.speech:target, .document li:target, .protocol li:target { background: #f3e9cf; }
+
+.protocol-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(15rem, 1fr); gap: 1.1rem; align-items: start; }
+.protocol-group, .document { background: var(--surface); border: 1px solid var(--rule); margin-bottom: .55rem; }
+summary { display: flex; align-items: center; gap: .65rem; cursor: pointer; font-weight: 700; padding: .85rem 1rem; }
+summary::marker, summary::-webkit-details-marker { display: none; content: ''; }
+summary::before { content: '+'; flex: 0 0 1rem; color: var(--red); font: 700 1rem var(--mono); }
+details[open] > summary::before { content: '−'; }
+summary:hover { background: #f0ebe0; }
+.count { margin-left: auto; color: var(--muted); font: .75rem var(--mono); }
+.protocol-group ol { border-top: 1px solid var(--rule); padding: .05rem 1rem .1rem 2.15rem; }
+.protocol-group li { padding: .6rem .1rem; }
+.protocol-group li + li { border-top: 1px solid #e3ded2; }
+.protocol-group .references { margin-top: .45rem; }
+.reviews { background: #ebe7dd; padding: 1rem; }
+.reviews ul { list-style: none; }
+.reviews li { padding: .7rem 0; border-top: 1px solid var(--rule); margin-top: .35rem; }
+.reviews p { font-size: .91rem; }
+.reviews a { font-size: .82rem; color: var(--blue); }
+.review-status { margin-left: .45rem; padding: .11rem .36rem; font: .69rem var(--mono); background: var(--badge); color: var(--speaker); }
+.earlier-review { border-top: 1px solid var(--rule); margin-top: .35rem; }
+.earlier-review summary { padding-inline: 0; font-size: .88rem; }
+.earlier-review li { margin-top: 0; }
+.documents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; align-items: start; }
+.document { margin: 0; }
+.document ol { list-style: none; border-top: 1px solid var(--rule); padding: .15rem 1rem .35rem; }
+.document li { display: grid; grid-template-columns: minmax(4.8rem, max-content) minmax(0, 1fr); padding: .35rem 0; gap: .1rem .6rem; }
+.document li + li { border-top: 1px solid #e3ded2; }
+.document code { color: var(--blue); }
+.document li a { grid-column: 2; font-size: .83rem; }
+.method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem 1.3rem; }
+.method-grid article { padding-top: .8rem; border-top: 2px solid var(--red); }
+.method-grid p { margin-top: .35rem; color: var(--muted); }
+.note { max-width: 72ch; margin-top: 1.2rem; padding: .65rem .85rem; border-left: 2px solid var(--red); background: #efe7da; }
+.footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .45rem 1rem; border-top: 1px solid var(--rule); padding-block: 1rem 1.4rem; margin-top: 3.8rem; color: var(--muted); font-size: .86rem; }
+
+.source-dialog { width: min(34rem, calc(100% - 2rem)); padding: 1.5rem; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+.source-dialog::backdrop { background: #192622a6; }
+.source-dialog h2 { font-size: 2rem; padding-right: 2rem; }
+.source-dialog blockquote { padding-left: .8rem; margin-block: 1rem; border-left: 2px solid var(--red); }
+.close { display: grid; place-items: center; position: absolute; top: .8rem; right: .8rem; background: transparent; border: 1px solid var(--rule); color: var(--ink); width: 2rem; height: 2rem; font-size: 1.3rem; cursor: pointer; }
+.close:hover { background: #e9e1d4; }
+
+@media (max-width: 880px) {
+  .wrap { width: calc(100% - 54px); }
+  .hero { grid-template-columns: 1.02fr .98fr; }
+  .hero h1 { font-size: clamp(3.1rem, 7.9vw, 5rem); }
+  .play-grid { grid-template-columns: minmax(11rem, .3fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 32px); }
+  .masthead { min-height: auto; padding-block: .8rem; align-items: start; flex-direction: column; gap: .55rem; }
+  .masthead nav { gap: .9rem; }
+  .hero { grid-template-columns: 1fr; padding-block: 2.25rem 1.55rem; gap: 1.5rem; }
+  .hero h1 { font-size: clamp(3.1rem, 11vw, 4.6rem); }
+  .hero-links { margin-top: 1.1rem; }
+  .hero-art { min-height: 17rem; }
+  .exhibit { width: min(74%, 21rem); }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats > div:nth-child(3) { border-left: 0; padding-inline-start: 0; }
+  .stats > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .section-head { align-items: start; flex-direction: column; gap: .65rem; }
+  .section-head .quiet { min-height: auto; }
+  .chart { grid-template-columns: minmax(0, 1fr); margin-inline: .42rem; gap: .35rem; }
+  .track-label { padding-top: .2rem; }
+  .chart > div:empty { display: none; }
+  .play-grid, .protocol-grid, .documents, .method-grid { grid-template-columns: minmax(0, 1fr); }
+  .cast ul { margin-block: .45rem; }
+  .act-nav a { flex-direction: column; gap: .2rem; padding: .6rem .45rem; }
+  .document li { grid-template-columns: minmax(0, 1fr); }
+  .document li a { grid-column: 1; }
+  .footer { margin-top: 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marker { transition: none; }
+}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="masthead wrap">
+    <a class="brand" href="#main"><span aria-hidden="true"></span> Агентский театр</a>
+    <nav aria-label="Разделы">
+      <a href="#timeline">Хронология</a><a href="#play">Пьеса</a><a href="#protocol">Протокол</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="label"><span class="signal"></span> Дело «Север»</p>
+        <h1 id="title">Поправка<br><em>к протоколу</em></h1>
+        <p class="intro">Орлов уже подписал вывод об отправке рабочего файла. Волкова находит расхождение в часах проходной, а Соколов меняет показания.</p>
+        <div class="hero-links"><a class="primary" href="#play">Читать пьесу <span aria-hidden="true">↗</span></a><a class="quiet" href="#timeline">Сверить время <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="folder"></div>
+        <div class="exhibit">
+          <div class="exhibit-head"><span>АКТ СВЕРКИ</span><span>ДЕЛО «СЕВЕР»</span></div>
+          <p>Повторный вход<br>по пропуску</p>
+          <div class="exhibit-times"><s>21:14</s><span>↘</span><strong>21:02</strong></div>
+          <div class="exhibit-foot"><span>ВРЕМЯ СЕРВЕРА</span><b>−12 МИН</b></div>
+        </div>
+      </div>
+    </section>
+
+    <dl class="stats wrap" aria-label="Сохранённый прогон">
+      <div><dt>Действия</dt><dd>3</dd></div><div><dt>Реплики</dt><dd>12</dd></div>
+      <div><dt>Вызовы инструментов</dt><dd>14</dd></div><div><dt>Редакции протокола</dt><dd>1</dd></div>
+    </dl>
+
+    <section id="timeline" class="section wrap" aria-labelledby="timeline-title">
+      <div class="section-head"><div><p class="label">Хронология дела</p><h2 id="timeline-title">Двенадцать минут</h2></div>
+        <p>Контроллер проходной спешил. Примените поправку к записи о входе и сравните её с серверным временем отправки.</p></div>
+      <div class="timeline" data-timeline>
+        <div class="timeline-top">
+          <div class="segmented" aria-label="Состояние хронологии" hidden>
+            <button type="button" aria-pressed="true" data-time="before">По записке</button><button type="button" aria-pressed="false" data-time="after">После сверки</button>
+          </div>
+          <span class="offset" data-offset hidden>−12 мин</span>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <div class="track-label access-label"><i></i> Вход по пропуску</div>
+          <div class="track"><span class="marker entrance"><b data-entry>21:14</b></span></div>
+          <div class="track-label mail-label"><i></i> Отправка файла</div>
+          <div class="track"><span class="marker dispatch"><b>21:06</b></span></div>
+          <div></div><div class="ticks"><span>21:00</span><span>21:04</span><span>21:08</span><span>21:12</span><span>21:16</span></div>
+        </div>
+        <div class="timeline-bottom"><p data-order aria-live="polite">По записке вход отмечен в 21:14, после отправки в 21:06.</p>
+          <div class="references"><a class="source-link" href="#source-clock-4" data-source>Акт сверки ↗</a><a class="source-link" href="#source-mail-3" data-source>Переписка ↗</a></div></div>
+      </div>
+      <p class="annotation">После поправки отметка входа сдвигается на 21:02. Сверка меняет порядок записей. Где был телефон, по этим записям определить нельзя.</p>
+    </section>
+
+    <section id="play" class="section wrap" aria-labelledby="play-title">
+      <div class="section-head"><h2 id="play-title">Пьеса</h2></div>
+      <div class="play-grid">
+        <aside class="cast"><h3>Действующие лица</h3><ul><li class="orlov"><span class="initial" aria-hidden="true">О</span><span><strong>Орлов</strong><small>Автор предварительной записки</small></span></li>
+<li class="volkova"><span class="initial" aria-hidden="true">В</span><span><strong>Волкова</strong><small>Проверяет документы и хронологию</small></span></li>
+<li class="sokolov"><span class="initial" aria-hidden="true">С</span><span><strong>Соколов</strong><small>Инженер, отправивший сводку</small></span></li></ul><p>Персонажи и материалы дела вымышлены.</p></aside>
+        <div class="script"><nav class="act-nav" aria-label="Действия пьесы"><a href="#act-1" id="tab-1"><span>I</span> Подписанная версия</a>
+<a href="#act-2" id="tab-2"><span>II</span> Сверка часов</a>
+<a href="#act-3" id="tab-3"><span>III</span> Цель и разрешение</a></nav><article class="act" id="act-1" aria-labelledby="heading-1"><h3 id="heading-1">I. Подписанная версия</h3><audio controls preload="metadata" src="audio/act-1.wav" aria-label="Озвучка действия I"><a href="audio/act-1.wav">Скачать озвучку</a></audio><p class="direction">Орлов стоит у окна, спиной к столу. Волкова раскладывает папки, не глядя на Соколова. Соколов садится на дальний конец стола, кладёт руки на папку.</p><ol class="speeches"><li id="turn-1" class="speech orlov" data-start="10.400" data-end="21.238"><span class="turn-number" aria-hidden="true">01</span><div><b>Орлов</b><p>Соколов, в записке я исходил из того, что файл ушёл из-за пределов лаборатории: вход отмечен в 21:14, позже отправки. Скажите прямо — вы возвращались в лабораторию после ухода?</p></div></li><li id="turn-2" class="speech sokolov" data-start="21.571" data-end="24.171"><span class="turn-number" aria-hidden="true">02</span><div><b>Соколов</b><p>Я возвращался. За распечатку.</p></div></li><li id="turn-3" class="speech orlov" data-start="24.504" data-end="30.204"><span class="turn-number" aria-hidden="true">03</span><div><b>Орлов</b><p>В первом объяснении вы написали, что после ухода в лабораторию не возвращались. Зачем скрыли возвращение?</p></div></li><li id="turn-4" class="speech sokolov" data-start="33.375" data-end="39.038"><span class="turn-number" aria-hidden="true">04</span><div><b>Соколов</b> <i class="delivery">(тише, после паузы)</i><p>Я скрыл возвращение, потому что боялся, что меня спросят об отправленном рабочем файле.</p></div></li><li id="turn-5" class="speech volkova" data-start="39.371" data-end="48.008"><span class="turn-number" aria-hidden="true">05</span><div><b>Волкова</b><p>Прежде чем делать вывод об отправке, нужно сверить часы на проходной с серверным временем — иначе отметка в 21:14 может стоять не по той шкале.</p></div></li></ol><p class="direction">Орлов медленно закрывает папку и откладывает её в сторону. Волкова, не поднимая головы, делает пометку в блокноте. Соколов переводит взгляд с одного на другого и замирает.</p></article>
+<article class="act" id="act-2" aria-labelledby="heading-2"><h3 id="heading-2">II. Сверка часов</h3><audio controls preload="metadata" src="audio/act-2.wav" aria-label="Озвучка действия II"><a href="audio/act-2.wav">Скачать озвучку</a></audio><p class="direction">Орлов откладывает ручку и смотрит на Волкову. Соколов переводит взгляд с неё на папки, не двигаясь. Волкова раскрывает папку и кладёт ладонь на страницу.</p><ol class="speeches"><li id="turn-6" class="speech volkova" data-start="14.325" data-end="27.350"><span class="turn-number" aria-hidden="true">06</span><div><b>Волкова</b> <i class="delivery">(указывая на журнал, отчётливо)</i><p>Андрей, по акту сверки часы на проходной спешили на 12 минут: отметка 21:14 — это 21:02 по серверу, то есть раньше отправки в 21:06. Что вы теперь снимаете из записки?</p></div></li><li id="turn-7" class="speech orlov" data-start="31.533" data-end="38.208"><span class="turn-number" aria-hidden="true">07</span><div><b>Орлов</b> <i class="delivery">(сдержанно, после паузы)</i><p>Снимаю вывод о внешней отправке: порядок отметок я истолковал неверно, это моя ошибка. Место отправки оставляю открытым.</p></div></li></ol><p class="direction">Орлов медленно закрывает папку. Волкова отводит взгляд к жалюзи. Соколов делает короткий вдох, не поднимая глаз.</p></article>
+<article class="act" id="act-3" aria-labelledby="heading-3"><h3 id="heading-3">III. Цель и разрешение</h3><audio controls preload="metadata" src="audio/act-3.wav" aria-label="Озвучка действия III"><a href="audio/act-3.wav">Скачать озвучку</a></audio><p class="direction">Орлов откидывается на спинку стула и закрывает папку. Волкова, не отводя взгляда от Орлова, медленно кивает. Соколов переводит дыхание и опускает глаза на стол.</p><ol class="speeches"><li id="turn-8" class="speech orlov" data-start="11.537" data-end="16.800"><span class="turn-number" aria-hidden="true">08</span><div><b>Орлов</b><p>Марк просил черновую сводку по испытаниям для обсуждения консультации. Зачем вы её отправили?</p></div></li><li id="turn-9" class="speech sokolov" data-start="17.133" data-end="21.508"><span class="turn-number" aria-hidden="true">09</span><div><b>Соколов</b><p>Я отправил черновую сводку, чтобы обсудить консультацию с Марком.</p></div></li><li id="turn-10" class="speech volkova" data-start="21.842" data-end="29.942"><span class="turn-number" aria-hidden="true">10</span><div><b>Волкова</b><p>По согласованию внешней передачи в материалах ничего не найдено. Уточните только одно: получал ли Соколов разрешение на отправку этой сводки?</p></div></li><li id="turn-11" class="speech sokolov" data-start="30.275" data-end="33.600"><span class="turn-number" aria-hidden="true">11</span><div><b>Соколов</b><p>Я не получил разрешения на отправку этой сводки.</p></div></li><li id="turn-12" class="speech volkova" data-start="33.933" data-end="41.696"><span class="turn-number" aria-hidden="true">12</span><div><b>Волкова</b><p>По словам Соколова, сводка ушла для обсуждения консультации без разрешения. Материалы не устанавливают ни места отправки, ни умысла.</p></div></li></ol><p class="direction">Орлов медленно закрывает папку и откладывает её в сторону. Волкова, не поднимая глаз от бумаг, делает пометку. Соколов стоит неподвижно, глядя на Орлова.</p></article></div>
+      </div>
+    </section>
+
+    <section id="protocol" class="section wrap" aria-labelledby="protocol-title">
+      <div class="section-head"><div><p class="label">Итог разговора</p><h2 id="protocol-title">Протокол</h2></div><p>К рассмотренным пунктам возражений нет. Номера под пунктами ведут к строкам документов, репликам или расчётам.</p></div>
+      <div class="protocol-grid"><div class="protocol"><details class="protocol-group established"><summary><span>Факты и показания</span><span class="count">4</span></summary><ol><li id="established-1"><p>В первом объяснении Соколов отрицал возвращение. В разговоре он уточнил: «Я возвращался. За распечатку».</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-statement-3" data-source>statement:3</a> <a class="source-link" href="#source-turn-2" data-source>turn:2</a></div></li><li id="established-2"><p>О цели отправки Соколов сказал: «Я отправил черновую сводку, чтобы обсудить консультацию с Марком».</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-mail-2" data-source>mail:2</a> <a class="source-link" href="#source-turn-9" data-source>turn:9</a></div></li><li id="established-3"><p>На вопрос, получал ли он разрешение, Соколов ответил: «Я не получил разрешения на отправку этой сводки». В переписке согласование не зафиксировано.</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-mail-5" data-source>mail:5</a> <a class="source-link" href="#source-turn-10" data-source>turn:10</a> <a class="source-link" href="#source-turn-11" data-source>turn:11</a></div></li><li id="established-4"><p>Причину умолчания о возвращении Соколов объяснил так: «Я скрыл возвращение, потому что боялся, что меня спросят об отправленном рабочем файле».</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-turn-4" data-source>turn:4</a></div></li></ol></details>
+<details class="protocol-group corrected" open><summary><span>Исправлено</span><span class="count">1</span></summary><ol><li id="corrected-1"><p>Орлов снял вывод о внешней отправке. В записке отметка входа 21:14 шла после отправки в 21:06. По акту ей соответствует 21:02, то есть отметка входа теперь раньше отправки.</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-preliminary-3" data-source>preliminary:3</a> <a class="source-link" href="#source-preliminary-4" data-source>preliminary:4</a> <a class="source-link" href="#source-clock-4" data-source>clock:4</a> <a class="source-link" href="#source-calc-10" data-source>calc:10</a> <a class="source-link" href="#source-mail-3" data-source>mail:3</a> <a class="source-link" href="#source-turn-7" data-source>turn:7</a></div></li></ol></details>
+<details class="protocol-group unresolved"><summary><span>Требует проверки</span><span class="count">2</span></summary><ol><li id="unresolved-1"><p>Сверка часов не устанавливает местонахождение телефона в момент отправки.</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-access-7" data-source>access:7</a> <a class="source-link" href="#source-mail-9" data-source>mail:9</a></div></li><li id="unresolved-2"><p>Личность Марка и его связи не установлены. Материалы не доказывают умысел на шпионаж.</p><div class="references" aria-label="Источники"><a class="source-link" href="#source-mail-7" data-source>mail:7</a> <a class="source-link" href="#source-mail-8" data-source>mail:8</a></div></li></ol></details></div>
+        <div class="reviews"><h3>Отзывы участников</h3><ul><li class="orlov"><b>Орлов</b><span class="review-status">Без возражений</span><p>Принимаю: оба фрагмента есть в источниках, противоречие между первым отрицанием и уточнением зафиксировано дословно. Формулировка корректна.</p><a href="#established-1">Факты и показания, п. 1</a></li>
+<li class="volkova"><b>Волкова</b><span class="review-status">Без возражений</span><p>Источники подтверждают: записка снимает вывод, отметка 21:14 по акту соответствует 21:02, то есть раньше отправки 21:06. Место отправки Орлов оставляет открытым.</p><a href="#corrected-1">Исправлено, п. 1</a></li>
+<li class="sokolov"><b>Соколов</b><span class="review-status">Без возражений</span><p>Согласен с изменением формулировки, так как интерпретация порядка событий была неверной.</p><a href="#corrected-1">Исправлено, п. 1</a></li></ul></div></div>
+    </section>
+
+    <section id="sources" class="section wrap" aria-labelledby="source-title">
+      <div class="section-head"><div><p class="label">Строки и ссылки</p><h2 id="source-title">Материалы дела</h2></div><p>Документы становились доступны постепенно. Номер действия указан рядом с каждым документом.</p></div>
+      <div class="documents"><details class="document"><summary><span>Первичное объяснение</span><span class="count">Акт 1</span></summary><ol><li id="source-statement-1"><code>statement:1</code><p>Дело «Север». Первичное объяснение Ильи Соколова. Все материалы вымышлены.</p></li><li id="source-statement-2"><code>statement:2</code><p>Соколов: «После вечернего совещания я собрался и ушёл около 20:50».</p></li><li id="source-statement-3"><code>statement:3</code><p>Соколов: «После этого в лабораторию не возвращался. Поехал домой».</p></li><li id="source-statement-4"><code>statement:4</code><p>Уточнение сотрудника: время ухода названо по памяти, запись проходной на момент объяснения не проверялась.</p></li><li id="source-statement-5"><code>statement:5</code><p>На столе Соколова обычно остаются рабочая папка и зарядка для телефона.</p></li><li id="source-statement-6"><code>statement:6</code><p>Вопрос об отправке документов в этом объяснении не задавался.</p></li></ol></details>
+<details class="document"><summary><span>Подписанная предварительная записка</span><span class="count">Акт 1</span></summary><ol><li id="source-preliminary-1"><code>preliminary:1</code><p>Дело «Север». Предварительная записка Андрея Орлова. Все материалы вымышлены.</p></li><li id="source-preliminary-2"><code>preliminary:2</code><p>Записка составлена до получения акта сверки часов и подписана Орловым.</p></li><li id="source-preliminary-3"><code>preliminary:3</code><p>Рабочая версия: файл отправлен в 21:06, до повторного входа в лабораторию, отмеченного в журнале в 21:14.</p></li><li id="source-preliminary-4"><code>preliminary:4</code><p>Вывод записки: отправка из-за пределов лаборатории подтверждает заранее подготовленную внешнюю передачу.</p></li><li id="source-preliminary-5"><code>preliminary:5</code><p>Основание: выдержка времени отправки и выгрузка контроллера лаборатории.</p></li><li id="source-preliminary-6"><code>preliminary:6</code><p>Документов о местоположении телефона в момент отправки к записке не приложено.</p></li><li id="source-preliminary-7"><code>preliminary:7</code><p>Орлов подписал записку и направил её на дополнительную техническую проверку.</p></li></ol></details>
+<details class="document"><summary><span>Журнал доступа</span><span class="count">Акт 2</span></summary><ol><li id="source-access-1"><code>access:1</code><p>Дело «Север». Выдержка из журнала контроллера лаборатории. Все материалы вымышлены.</p></li><li id="source-access-2"><code>access:2</code><p>20:48 — выход по пропуску Ильи Соколова.</p></li><li id="source-access-3"><code>access:3</code><p>21:14 — вход по пропуску Ильи Соколова.</p></li><li id="source-access-4"><code>access:4</code><p>21:23 — выход по пропуску Ильи Соколова.</p></li><li id="source-access-5"><code>access:5</code><p>Все значения в этой выгрузке — время контроллера, а не подтверждённое точное время.</p></li><li id="source-access-6"><code>access:6</code><p>Состояние синхронизации контроллера требует отдельной сверки с техническим актом.</p></li><li id="source-access-7"><code>access:7</code><p>Срабатывание пропуска само по себе не устанавливает, кто физически им пользовался и что он делал в помещении.</p></li></ol></details>
+<details class="document"><summary><span>Сверка часов</span><span class="count">Акт 2</span></summary><ol><li id="source-clock-1"><code>clock:1</code><p>Дело «Север». Акт технической сверки часов. Все материалы вымышлены.</p></li><li id="source-clock-2"><code>clock:2</code><p>В интервале 20:00–22:00 контроллер лаборатории спешил на 12 минут относительно серверного времени.</p></li><li id="source-clock-3"><code>clock:3</code><p>Для этого интервала из времени контроллера нужно вычесть 12 минут.</p></li><li id="source-clock-4"><code>clock:4</code><p>Запись повторного входа 21:14 соответствует серверному времени 21:02.</p></li><li id="source-clock-5"><code>clock:5</code><p>Запись последнего выхода 21:23 соответствует серверному времени 21:11.</p></li><li id="source-clock-6"><code>clock:6</code><p>Первая запись выхода 20:48 соответствует серверному времени 20:36; объяснение «около 20:50» остаётся неточным.</p></li><li id="source-clock-7"><code>clock:7</code><p>У почтового сервиса время серверное, дополнительная поправка к нему не применяется.</p></li><li id="source-clock-8"><code>clock:8</code><p>Поправка подтверждает хронологию, но не цель возвращения и не умысел отправителя.</p></li></ol></details>
+<details class="document"><summary><span>Переписка и состав файла</span><span class="count">Акт 3</span></summary><ol><li id="source-mail-1"><code>mail:1</code><p>Дело «Север». Выдержка из переписки, предоставленной Соколовым до беседы. Все материалы вымышлены.</p></li><li id="source-mail-2"><code>mail:2</code><p>Марк: «Для обсуждения консультации пришлите черновую сводку по испытаниям. Условия оплаты обсудим отдельно».</p></li><li id="source-mail-3"><code>mail:3</code><p>Отправка с личного телефона Соколова: 21:06 по серверному времени почтового сервиса.</p></li><li id="source-mail-4"><code>mail:4</code><p>Вложение: черновая сводка по испытаниям; в ней внутренние рабочие показатели.</p></li><li id="source-mail-5"><code>mail:5</code><p>Согласование внешней передачи этого документа в материалах отсутствует.</p></li><li id="source-mail-6"><code>mail:6</code><p>Подтверждения перевода денег в представленных материалах нет.</p></li><li id="source-mail-7"><code>mail:7</code><p>Личность Марка и его возможные связи с иностранными организациями не установлены.</p></li><li id="source-mail-8"><code>mail:8</code><p>Материалы не дают основания считать сам факт шпионажа доказанным.</p></li><li id="source-mail-9"><code>mail:9</code><p>Местоположение телефона в момент отправки в этой выдержке не зафиксировано.</p></li></ol></details>
+<details class="document"><summary>Реплики и расчёты</summary><ol><li id="source-turn-1"><code>turn:1</code><p>Орлов: Соколов, в записке я исходил из того, что файл ушёл из-за пределов лаборатории: вход отмечен в 21:14, позже отправки. Скажите прямо — вы возвращались в лабораторию после ухода?</p><a href="#turn-1">К реплике</a></li><li id="source-turn-2"><code>turn:2</code><p>Соколов: Я возвращался. За распечатку.</p><a href="#turn-2">К реплике</a></li><li id="source-turn-3"><code>turn:3</code><p>Орлов: В первом объяснении вы написали, что после ухода в лабораторию не возвращались. Зачем скрыли возвращение?</p><a href="#turn-3">К реплике</a></li><li id="source-turn-4"><code>turn:4</code><p>Соколов: Я скрыл возвращение, потому что боялся, что меня спросят об отправленном рабочем файле.</p><a href="#turn-4">К реплике</a></li><li id="source-turn-5"><code>turn:5</code><p>Волкова: Прежде чем делать вывод об отправке, нужно сверить часы на проходной с серверным временем — иначе отметка в 21:14 может стоять не по той шкале.</p><a href="#turn-5">К реплике</a></li><li id="source-turn-6"><code>turn:6</code><p>Волкова: Андрей, по акту сверки часы на проходной спешили на 12 минут: отметка 21:14 — это 21:02 по серверу, то есть раньше отправки в 21:06. Что вы теперь снимаете из записки?</p><a href="#turn-6">К реплике</a></li><li id="source-turn-7"><code>turn:7</code><p>Орлов: Снимаю вывод о внешней отправке: порядок отметок я истолковал неверно, это моя ошибка. Место отправки оставляю открытым.</p><a href="#turn-7">К реплике</a></li><li id="source-turn-8"><code>turn:8</code><p>Орлов: Марк просил черновую сводку по испытаниям для обсуждения консультации. Зачем вы её отправили?</p><a href="#turn-8">К реплике</a></li><li id="source-turn-9"><code>turn:9</code><p>Соколов: Я отправил черновую сводку, чтобы обсудить консультацию с Марком.</p><a href="#turn-9">К реплике</a></li><li id="source-turn-10"><code>turn:10</code><p>Волкова: По согласованию внешней передачи в материалах ничего не найдено. Уточните только одно: получал ли Соколов разрешение на отправку этой сводки?</p><a href="#turn-10">К реплике</a></li><li id="source-turn-11"><code>turn:11</code><p>Соколов: Я не получил разрешения на отправку этой сводки.</p><a href="#turn-11">К реплике</a></li><li id="source-turn-12"><code>turn:12</code><p>Волкова: По словам Соколова, сводка ушла для обсуждения консультации без разрешения. Материалы не устанавливают ни места отправки, ни умысла.</p><a href="#turn-12">К реплике</a></li><li id="source-calc-10"><code>calc:10</code><p>21:14 − 12 мин = 21:02</p></li></ol></details></div>
+    </section>
+
+    <section id="method" class="section wrap" aria-labelledby="method-title">
+      <div class="section-head"><h2 id="method-title">Как получилась пьеса</h2></div>
+      <div class="method-grid">
+        <article><h3>План и очередь</h3><p>Облачная модель составляет план из трёх действий. На прямой вопрос отвечает адресат. Порядок эпизодов берётся из плана, составленного до диалога.</p></article>
+        <article><h3>Две модели</h3><p>Орлова и Волкову играет <code>deepseek-v4.1-flash</code> через Yandex AI Studio. Соколова играет локальная <code>Qwen/Qwen3-1.7B</code>.</p></article>
+        <article><h3>Источники</h3><p>Сотрудники ищут строки в материалах, читают выдержки и проверяют поправку часов. При составлении протокола ссылки сверяются с журналом.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><span>Агентский театр · Лабораторная работа · <a href="https://github.com/snakers4/silero-models#licence">Озвучка Silero</a></span><a href="https://github.com/MAILabs-Education/Agent_Theatre">Условие задания ↗</a></footer>
+
+  <dialog class="source-dialog" aria-labelledby="source-dialog-title">
+    <form method="dialog"><button class="close" aria-label="Закрыть">×</button></form>
+    <h2 id="source-dialog-title">Источник</h2>
+    <blockquote></blockquote>
+    <a class="quiet" href="#sources">Перейти к источнику <span aria-hidden="true">↗</span></a>
+  </dialog>
+  <script>
+const timeline = document.querySelector('[data-timeline]');
+const timeButtons = [...timeline.querySelectorAll('[data-time]')];
+timeline.querySelector('.segmented').hidden = false;
+
+for (const button of timeButtons) {
+  button.addEventListener('click', () => {
+    const corrected = button.dataset.time === 'after';
+    timeline.classList.toggle('after', corrected);
+    timeline.querySelector('[data-entry]').textContent = corrected ? '21:02' : '21:14';
+    timeline.querySelector('[data-offset]').hidden = !corrected;
+    timeline.querySelector('[data-order]').textContent = corrected
+      ? 'После сверки вход отмечен в 21:02, за четыре минуты до отправки.'
+      : 'По записке вход отмечен в 21:14, после отправки в 21:06.';
+    for (const option of timeButtons) option.setAttribute('aria-pressed', String(option === button));
+  });
+}
+
+const tabList = document.querySelector('.act-nav');
+const tabs = [...tabList.querySelectorAll('a')];
+const panels = tabs.map(tab => document.getElementById(tab.hash.slice(1)));
+
+function selectAct(index) {
+  for (const [i, tab] of tabs.entries()) {
+    const active = i === index;
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panels[i].hidden = !active;
+    if (!active) panels[i].querySelector('audio')?.pause();
+  }
+}
+
+function openAnchor(hash) {
+  const target = document.getElementById(hash.slice(1));
+  if (!target) return null;
+  const panel = target.closest('.act');
+  if (panel) selectAct(panels.indexOf(panel));
+  const details = target.closest('details');
+  if (details) details.open = true;
+  return target;
+}
+
+tabList.setAttribute('role', 'tablist');
+for (const [i, tab] of tabs.entries()) {
+  tab.setAttribute('role', 'tab');
+  tab.setAttribute('aria-controls', panels[i].id);
+  panels[i].setAttribute('role', 'tabpanel');
+  panels[i].setAttribute('aria-labelledby', tab.id);
+  panels[i].tabIndex = 0;
+  tab.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    selectAct(i);
+    history.replaceState(null, '', tab.hash);
+  });
+  tab.addEventListener('keydown', event => {
+    const next = {
+      ArrowLeft: (i + tabs.length - 1) % tabs.length,
+      ArrowRight: (i + 1) % tabs.length,
+      Home: 0,
+      End: tabs.length - 1,
+    }[event.key];
+    if (event.key === ' ') {
+      event.preventDefault();
+      tab.click();
+    } else if (next !== undefined) {
+      event.preventDefault();
+      tabs[next].click();
+      tabs[next].focus();
+    }
+  });
+}
+
+selectAct(0);
+openAnchor(location.hash);
+window.addEventListener('hashchange', () => openAnchor(location.hash)?.scrollIntoView());
+
+for (const panel of panels) {
+  const player = panel.querySelector('audio');
+  if (!player) continue;
+  const cues = [...panel.querySelectorAll('[data-start]')].map(row => ({
+    row, start: Number(row.dataset.start), end: Number(row.dataset.end),
+  }));
+  let activeCue;
+  function syncSpeech() {
+    const time = player.currentTime;
+    const cue = cues.find(({start, end}) => start <= time && time < end);
+    if (cue === activeCue) return;
+    activeCue?.row.classList.remove('is-speaking');
+    cue?.row.classList.add('is-speaking');
+    activeCue = cue;
+  }
+  player.addEventListener('timeupdate', syncSpeech);
+  player.addEventListener('seeked', syncSpeech);
+}
+
+const dialog = document.querySelector('.source-dialog');
+const sourceTarget = dialog.querySelector('a');
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const target = document.getElementById(link.hash.slice(1));
+  if (link.hasAttribute('data-source') && typeof dialog.showModal === 'function' && target) {
+    event.preventDefault();
+    dialog.querySelector('h2').textContent = target.querySelector('code').textContent;
+    dialog.querySelector('blockquote').textContent = target.querySelector('p').textContent;
+    sourceTarget.setAttribute('href', link.hash);
+    dialog.showModal();
+    return;
+  }
+  if (link === sourceTarget) dialog.close();
+  openAnchor(link.hash);
+});
+  </script>
+</body>
+</html>
